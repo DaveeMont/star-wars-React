@@ -3,17 +3,42 @@ import React, {useEffect, useState} from 'react';
 import Button from '@mui/material/Button';
 import Characters from './components/Characters';
 import {fetchCharacters} from "./swapi/swapi"; 
+import { convertLength } from '@mui/material/styles/cssUtils';
 // 
-import image1 from '../assets/luke.jpg'
-import image2 from '../../assets/c-3PO.jpg'
-
+// import image1 from '../assets/luke.jpg'
 
 
 function App() {
-  let imagenes = ['luke.jpg', 'c-3PO.jpg', 'R2-D2.jpg', 'Darth Vsder.jpg', 'Leia Organa.jpg', 'Owen Lars.jpg', 'Beru Whitesun lars2.jpg', 'R5d4.jpg', 'Biggs Darklighter.jpg', 'Obi-Wan-Kenobi' ];
-  for(var i=0;i< fetchCharacters; i++){
-    console.log(imagenes);
-  }
+  let imagenes = [ 
+    {
+      name: 'Luke Skywalker',
+      src: 'https://as01.epimg.net/meristation/imagenes/2021/05/25/noticias/1621938791_013232_1621939095_noticia_normal.jpg',
+     },
+     {
+      name: 'C-3PO',
+      src: 'https://as01.epimg.net/meristation/imagenes/2021/05/25/noticias/1621938791_013232_1621939095_noticia_normal.jpg',
+     },
+     {
+       name: 'R2-D2',
+       src: ''
+     },
+     {
+       name: 'Darth Vader',
+       src: ''
+     },
+     {
+       name: 'Leia Organa',
+       src: ''
+     }
+    
+  ]
+      
+
+    //, 'c-3PO.jpg', 'R2-D2.jpg', 'Darth Vsder.jpg', 'Leia Organa.jpg', 'Owen Lars.jpg', 'Beru Whitesun lars2.jpg', 'R5d4.jpg', 'Biggs Darklighter.jpg', 'Obi-Wan-Kenobi' ];
+  // for(var i=0;i< fetchCharacters; i++){
+  //   console.log(imagenes);
+  // }
+
   //4 obtenemos el valor de response
   const [response, setResponse] = useState([]);
   //1 se ejecuta effect
@@ -27,21 +52,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Button variant="contained">Hello World</Button>
-        {/*5 Ocupamos la data 
-        {
-          name:'Luke skywalker'
-
-        },
-        {
-          name:'cp0'
-
-        }]
-
-
-        */}
+        
         {response.map(item => {
-          return <Characters nombre={item.name} height={item.height} mass={item.mass} birth_year={item.birth_year}/>
+          //  const image = "https://as01.epimg.net/meristation/imagenes/2021/05/25/noticias/1621938791_013232_1621939095_noticia_normal.jpg"
+          const comparador = imagenes.filter(image => image.name===item.name) 
+          const image = comparador[0].src;
+          return <Characters nombre={item.name} height={item.height} mass={item.mass} birth_year={item.birth_year} imagen={image ? image : ''}/>
         })}
       </header>
     </div>

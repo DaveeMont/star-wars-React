@@ -9,32 +9,43 @@ import Typography from '@mui/material/Typography';
 
 
 
-export default function Characters({nombre, height, mass, birth_year}) {
+export default function Characters({nombre, height, mass, birth_year, imagen}) {
+    console.log("imagen",imagen);
     return (
         <Card sx={{ maxWidth: 345 }}>
-          <CardMedia
-            component="img"
-            height="140"
-            image="https://mascotas-static.hola.com/elminizoo/files/2013/04/iguana.jpg"
-            alt="green iguana"
-          />
+          {
+            imagen && (
+              <CardMedia
+                component="img"
+                height="140"
+                image={imagen}
+                // alt="green iguana"
+              />
+
+            )
+          }
+          
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
-            nombre:  {`${nombre}`}
+              nombre:  {`${nombre}`}
             </Typography>
             <Typography variant="h5" color="text.secondary">
-            Altura: {`${height}`}
+              Altura: {`${height}`}
             </Typography>
             <Typography variant="h5" color="text.secondary">
-             Peso: {`${mass}`}
+              Peso: {`${mass}`}
             </Typography>
             <Typography variant="h5" color="text.secondary">
              Cumpleaños: {`${birth_year}`}
             </Typography>
 
+
           </CardContent>
           <CardActions>
-            <Button size="small">Agregar a favoritos</Button>
+            <Button size="small"
+            color="secondary"
+            variant='contained'
+            href='Favoritos'>Agregar a favoritos</Button>
             {/* <Button size="small">Learn More</Button> */}
           </CardActions>
         </Card>
