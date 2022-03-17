@@ -7,8 +7,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 
-
-
 export default function Characters({nombre, height, mass, birth_year, imagen}) {
     console.log("imagen",imagen);
     return (
@@ -17,36 +15,45 @@ export default function Characters({nombre, height, mass, birth_year, imagen}) {
             imagen && (
               <CardMedia
                 component="img"
-                height="140"
-                image={imagen}
-                // alt="green iguana"
+                height="400"
+                
+                src={imagen}
               />
 
             )
           }
           
-          <CardContent>
+          <CardContent
+           style={{
+            border: "0px 75px",
+            padding: 40,
+            textAlign: "center",
+            background: "black",
+            color: "yellow"
+            
+          }}>  
             <Typography gutterBottom variant="h5" component="div">
-              nombre:  {`${nombre}`}
+              Nombre:  {`${nombre}`}
             </Typography>
-            <Typography variant="h5" color="text.secondary">
+            <Typography variant="h5" color="yellow">
               Altura: {`${height}`}
             </Typography>
-            <Typography variant="h5" color="text.secondary">
+            <Typography variant="h5" color="yellow">
               Peso: {`${mass}`}
             </Typography>
-            <Typography variant="h5" color="text.secondary">
-             Cumpleaños: {`${birth_year}`}
+            <Typography variant="h5" color="yellow">
+              Cumpleaños: {`${birth_year}`}
             </Typography>
-
 
           </CardContent>
           <CardActions>
             <Button size="small"
-            color="secondary"
-            variant='contained'
-            href='Favoritos'>Agregar a favoritos</Button>
-            {/* <Button size="small">Learn More</Button> */}
+              color="secondary"
+              variant='contained'
+              href='Favoritos'>
+              Agregar a favoritos
+            </Button>
+            
           </CardActions>
         </Card>
       );

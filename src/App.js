@@ -1,47 +1,63 @@
 import './App.css';
 import React, {useEffect, useState} from 'react';
-import Button from '@mui/material/Button';
 import Characters from './components/Characters';
 import {fetchCharacters} from "./swapi/swapi"; 
-import { convertLength } from '@mui/material/styles/cssUtils';
-// 
-// import image1 from '../assets/luke.jpg'
-
 
 function App() {
   let imagenes = [ 
-    {
-      name: 'Luke Skywalker',
-      src: 'https://as01.epimg.net/meristation/imagenes/2021/05/25/noticias/1621938791_013232_1621939095_noticia_normal.jpg',
-     },
-     {
-      name: 'C-3PO',
-      src: 'https://as01.epimg.net/meristation/imagenes/2021/05/25/noticias/1621938791_013232_1621939095_noticia_normal.jpg',
-     },
-     {
-       name: 'R2-D2',
-       src: ''
-     },
-     {
-       name: 'Darth Vader',
-       src: ''
-     },
-     {
-       name: 'Leia Organa',
-       src: ''
-     }
+    // {
+    //   name: 'Luke Skywalker',
+    //   src: 'https://as01.epimg.net/meristation/imagenes/2021/05/25/noticias/1621938791_013232_1621939095_noticia_normal.jpg',
+    //  }
     
-  ]
-      
+      {
+        name: 'Luke Skywalker',
+        src: require('./assets/luke.jpg'),
+       },
+       {
+        name: 'C-3PO',
+        src: require('./assets/c-3PO.jpg'),
+       },
+       {
+         name: 'R2-D2',
+         src: require('./assets/R2-D2.jpg'),
+       },
+       {
+         name: 'Darth Vader',
+         src: require('./assets/Darth Vader.jpg'),
+       },
+       {
+         name: 'Leia Organa',
+         src: require('./assets/Leia Organa.jpg'),
+       },
+       {
+         name: 'Owen Lars',
+         src: require('./assets/Owen Lars.jpg'),
+       },
+       {
+         name: 'Beru Whitesun lars',
+         src: require('./assets/Beru Whitesun lars2.jpg'),
+       },
+       {
+         name: 'R5-D4',
+         src: require('./assets/R5d4.webp2.jpg'),
+       },
+       {
+         name: 'Biggs Darklighter',
+         src: require('./assets/Biggs Darklighter.jpg'),
+       },
+       {
+         name: 'Obi-Wan Kenobi',
+         src: require('./assets/Obi-Wan Kenobi.jpg'),
+       }
 
-    //, 'c-3PO.jpg', 'R2-D2.jpg', 'Darth Vsder.jpg', 'Leia Organa.jpg', 'Owen Lars.jpg', 'Beru Whitesun lars2.jpg', 'R5d4.jpg', 'Biggs Darklighter.jpg', 'Obi-Wan-Kenobi' ];
-  // for(var i=0;i< fetchCharacters; i++){
-  //   console.log(imagenes);
-  // }
+  ];
+ 
 
   //4 obtenemos el valor de response
   const [response, setResponse] = useState([]);
   //1 se ejecuta effect
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(async ()=> {
     //2 traemos data con fetch
     const res = await fetchCharacters();
@@ -50,14 +66,25 @@ function App() {
   },[]);
   
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="App" background="black"
+       style={{
+            padding: 1,
+            background: "yellow",
+          }}>
+      <header className="App-header" background="black">
         
         {response.map(item => {
-          //  const image = "https://as01.epimg.net/meristation/imagenes/2021/05/25/noticias/1621938791_013232_1621939095_noticia_normal.jpg"
-          const comparador = imagenes.filter(image => image.name===item.name) 
-          const image = comparador[0].src;
-          return <Characters nombre={item.name} height={item.height} mass={item.mass} birth_year={item.birth_year} imagen={image ? image : ''}/>
+          const comparador = imagenes.filter(image => image.name===item.name);
+          if(comparador.length > 0){
+            const image = comparador[0].src;
+            return <Characters 
+                      nombre={item.name}
+                      height={item.height}
+                      mass={item.mass} 
+                      birth_year={item.birth_year} 
+                      imagen={image}
+                    />
+          }
         })}
       </header>
     </div>
