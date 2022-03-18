@@ -1,0 +1,23 @@
+[33mcommit ebb4b1d77aa4f58a7331c01ccddf4699dc08a59c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: davit <davit.mont@gmail.com>
+Date:   Thu Mar 17 08:49:34 2022 -0600
+
+    Navegacion
+
+[33mcommit e1f3bdbe1633588f0670a28ef490f30e8ec1b429[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: davit <davit.mont@gmail.com>
+Date:   Wed Mar 16 17:49:45 2022 -0600
+
+    cargando imagenes
+
+[33mcommit 005c65081fb75e9eaea17e64fdbf99f5ce9fd4c8[m
+Author: davit <davit.mont@gmail.com>
+Date:   Wed Mar 16 12:15:43 2022 -0600
+
+    muestra los datos de la API nombre, edad, peso y cumpleaños. Falta las imagenes
+
+[33mcommit a9ffee85772b7fa0e1006bc6300e3cc5f67d1b9b[m
+Author: davit <davit.mont@gmail.com>
+Date:   Tue Mar 15 18:38:10 2022 -0600
+
+    Initialize project using Create React App

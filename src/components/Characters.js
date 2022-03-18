@@ -25,7 +25,7 @@ export default function Characters({nombre, height, mass, birth_year, imagen}) {
           
           <CardContent
            style={{
-            border: "0px 75px",
+            // border: "0px 75px",
             padding: 40,
             textAlign: "center",
             background: "black",
@@ -47,13 +47,14 @@ export default function Characters({nombre, height, mass, birth_year, imagen}) {
 
           </CardContent>
           <CardActions>
+          <form onsubmit="console.log('hola mundo.'); return false">
             <Button size="small"
               color="secondary"
               variant='contained'
               href='Favoritos'>
               Agregar a favoritos
             </Button>
-            
+            </form>
           </CardActions>
         </Card>
       );
